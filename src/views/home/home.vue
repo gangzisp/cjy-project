@@ -1,16 +1,20 @@
 <template>
     <div class="home">
-        主页
+        <home-swiper :banners="banners" />
+        <list-item :listDatas="listDatas" />
     </div>
 </template>
 <script>
-    import { getHomeMultidata } from "../service/home"
-    // import HomeSwiper from './childComps/HomeSwiper'
+    import { getHomeMultidata } from "../../service/home"
+
+    import HomeSwiper from './childComps/HomeSwiper'
+    import ListItem from '../../components/ListItem'
     
     export default {
         name: 'Home',
         components: {
-            // HomeSwiper,
+            HomeSwiper,
+            ListItem
         },
         data() {
             return {
@@ -21,7 +25,9 @@
         
         created() {
             getHomeMultidata().then(res=> {
-                console.log('res',res)
+                console.log(res)
+                this.banners = res.data.slide;
+                this.listDatas = res.data.list;
             }).catch(err=> {
                 console.log(err)
             }) 
