@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="list">
         <a class="list-box"  v-for="(item,index) in listDatas" :key="index" :href="item.url">
             <div class="list-img">
                 <img :src="item.cover" alt="">
@@ -26,9 +26,12 @@
     }
 </script>
 <style scoped>
+    .list {
+        padding: 10px;
+    }
     .list-box {
         display: flex;
-        padding: 10px;
+        padding-bottom: 10px;
     }
     .list-img {
         width: 20%;
