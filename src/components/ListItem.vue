@@ -23,9 +23,6 @@
                 }
             }
         },
-        mounted() {
-            console.log(this.listDatas)
-        }
     }
 </script>
 <style scoped>
